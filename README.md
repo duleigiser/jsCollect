@@ -5,8 +5,6 @@ quickSort: function(array) {
     var i = 0;
     var j = array.length - 1;
     var Sort = function(i, j) {
-
-        // 结束条件
         if (i == j) {
             return
         };
