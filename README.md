@@ -47,8 +47,8 @@ quickSort: function(array) {
     Sort(i, j);
 
     return array;
-}
-冒泡排序：
+},
+//冒泡排序：
 bubbleSort: function(array) {
     var i = 0,
     len = array.length,
