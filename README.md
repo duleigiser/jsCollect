@@ -1,10 +1,10 @@
 # jsCollect
-收集一些JS function
-快速排序：
-quickSort: function(array) {
-    var i = 0;
-    var j = array.length - 1;
-    var Sort = function(i, j) {
+//收集一些JS function
+//快速排序：
+    quickSort: function(array) {
+        var i = 0;
+        var j = array.length - 1;
+        var Sort = function(i, j) {
         if (i == j) {
             return
         };
@@ -47,19 +47,29 @@ quickSort: function(array) {
     return array;
 },
 //冒泡排序：
-bubbleSort: function(array) {
-    var i = 0,
-    len = array.length,
-    j, d;
-    for (; i < len; i++) {
-        for (j = 0; j < len; j++) {
-            if (array[i] < array[j]) {
-                d = array[j];
-                array[j] = array[i];
-                array[i] = d;
+    bubbleSort: function(array) {
+        var i = 0,
+        len = array.length,
+        j, d;
+        for (; i < len; i++) {
+            for (j = 0; j < len; j++) {
+                if (array[i] < array[j]) {
+                    d = array[j];
+                    array[j] = array[i];
+                    array[i] = d;
+                }
             }
-        }
     }
     return array;
 }
-
+//字符串反转
+    function reverse(str){
+        return str.split('').reverse().join('')
+    }
+    function reverse1(str){
+        var res='';
+        for(var i = 0; i<str.length;i++){
+            res+=str[str.length-1-i];
+        }
+        return res;
+    }
