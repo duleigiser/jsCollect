@@ -1,4 +1,4 @@
-//字符串反转
+//字符串反转；
 function reverse(str){
   return str.split('').reverse().join('')
 }
