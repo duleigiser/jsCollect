@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		
+		
+    /**
+     * 将对象数据转换成数组，数组每项是带有k和v的Object
+     *
+     * @inner
+     * @param {Object} source 对象数据
+     * @param {boolean} keyMatchable key是否允许被前缀匹配
+     * @param {boolean} allowAsterisk 是否支持*匹配所有
+     * @return {Array.<Object>} 对象转换数组
+     */
+			function kv2List(source, keyMatchable, allowAsterisk) {
+		        var list = [];
+		        for (var k in source) {
+		            if (source.hasOwnProperty(k)) {
+		                var item = {
+		                    k: k,
+		                    v: source[k]
+		                };
+		                list.push(item);
+		
+		                if (keyMatchable) {
+		                    item.reg = key === '*' && allowAsterisk
+		                        ? /^/
+		                        : createPrefixRegexp(key);
+		                }
+		            }
+		        }
+		
+		        return list;
+		    }
+			 /**
+			 * 创建id前缀匹配的正则对象
+			 *
+			 * @inner
+			 * @param {string} prefix id前缀
+			 * @return {RegExp} 前缀匹配的正则对象
+			 */
+			function createPrefixRegexp(prefix) {
+			    return new RegExp('^' + prefix + '(/|$)');
+			}
+			var obj = {
+				"ORG_SHORT_NAME": "宁东发电",
+				"SPEC_NAME": "热工",
+				"EXC_DESC": "宁东电厂锅炉壁温超标",
+				"NTC_ID": "696bd400-9885-443c-9e31-8123a0c194c5",
+				"DESCRIPTION": "宁东电厂锅炉壁温超标",
+				"R": 1,
+				"NTC_ORG_ID": "472212af-1977-462b-a74a-a1f36ed6562d",
+				"W_LEVEL": "0",
+				"AUDIT_STATUS": "A",
+				"W_DATE": "2016-01-28 00:00:00"
+			
+			}
+    	var result = kv2List("("+obj+")");
+    	console.log(result);
+    	var b= createPrefixRegexp('#32');
+    	/^#32(\/|$)/
+    	console.log(b);
+    	
+		</script>
+		
+		
+	</body>
+</html>
