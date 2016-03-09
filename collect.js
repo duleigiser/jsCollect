@@ -23,3 +23,10 @@ function queryString(url){
       }
   return res;     
 }
+//遍历json对象中的值；
+var json = [{dd:'haorooms',AA:'湛山寺',re1:123},{cccc:'dd',lk:'1qw'}];
+for(var i=0,l=json.length;i<l;i++){
+   for(var key in json[i]){
+       alert(key+':'+json[i][key]);
+   }
+}
