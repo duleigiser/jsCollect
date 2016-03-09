@@ -68,4 +68,14 @@ $().ready(
        });
    }
 );
-
+//js获取url中
+function GetRequest(url) {
+		var url = url.split('?')[1]; //获取url中"?"符后的字串
+		var theRequest ={};
+		strs = url.split("&");
+		 console.log(strs);
+		 for(var i = 0; i < strs.length; i ++) {
+		   theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+		}
+	return theRequest;
+}
