@@ -44,3 +44,28 @@ $().ready(
        }
    }
 );
+//jquery inArray()筛选遍历数组
+$().ready(
+	function(){
+    var anArray = ['one','two','three'];
+    var index = $.inArray(‘two’,anArray);
+    alert(index);//返回该值在数组中的键值，返回1
+    alert(anArray[index]);//value is two
+  }
+);
+//jQuery each()筛选遍历数组和JSON对象;
+$().ready(
+   function(){
+       var anObject = {one:1,two:2,three:3};//对json数组each
+       $.each(anObject,function(name,value) {
+           alert(name);
+           alert(value);
+       });
+       var anArray = ['one','two','three'];
+       $.each(anArray,function(n,value){
+           alert(n);
+           alert(value);
+       });
+   }
+);
+
