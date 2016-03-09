@@ -8,7 +8,7 @@ function reverse1(str){
       res+=str[str.length-1-i];
   }
   return res;
-}
+};
 //提取url字符串到json数据；
 function queryString(url){
   var reg_urlc = /^[^\?]+\?([\w\W]+)$/,
@@ -22,11 +22,25 @@ function queryString(url){
         }
       }
   return res;     
-}
+};
 //遍历json对象中的值；
 var json = [{dd:'haorooms',AA:'湛山寺',re1:123},{cccc:'dd',lk:'1qw'}];
 for(var i=0,l=json.length;i<l;i++){
    for(var key in json[i]){
        alert(key+':'+json[i][key]);
    }
-}
+};
+//jquery map()筛选遍历数组
+$().ready(
+   function(){
+       var strings = ['0','1','2','3','4','S','6'];
+       var values = $.map(strings,function(value){
+               var result = new Number(value);
+               return isNaN(result) ? null:result;
+           }
+       );
+       for (key in values) {
+           alert(values[key]);
+       }
+   }
+);
