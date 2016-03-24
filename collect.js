@@ -53,8 +53,10 @@ $().ready(
     alert(anArray[index]);//value is two
   }
 );
+
+
 //jQuery each()筛选遍历数组和JSON对象;
-$().ready(
+$(document).ready(
    function(){
        var anObject = {one:1,two:2,three:3};//对json数组each
        $.each(anObject,function(name,value) {
@@ -68,7 +70,8 @@ $().ready(
        });
    }
 );
-//js获取url中
+//js获取url中参数返回为 json 对象;
+
 function GetRequest(url) {
 		var url = url.split('?')[1]; //获取url中"?"符后的字串
 		var theRequest ={};
@@ -79,3 +82,11 @@ function GetRequest(url) {
 		}
 	return theRequest;
 }
+
+
+// 2016-03-21 11:10:10 转换成 2016年03月21日11点10分11秒
+function re_time_zh(time){
+    var timeArr = time.split(/[- :]/g)
+    return timeArr[0]+'年' + timeArr[1]+'月'+ timeArr[2] + '日'+ timeArr[3]+"点"+ timeArr[4]+"分" + timeArr[3]+"秒";
+}
+//console.log(re_time_zh("2016-03-21 11:10:10"));
