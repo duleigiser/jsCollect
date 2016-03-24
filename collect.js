@@ -1,4 +1,5 @@
 //字符串反转；
+// $ global
 function reverse(str){
   return str.split('').reverse().join('')
 }
@@ -8,7 +9,7 @@ function reverse1(str){
       res+=str[str.length-1-i];
   }
   return res;
-};
+}
 //提取url字符串到json数据；
 function queryString(url){
   var reg_urlc = /^[^\?]+\?([\w\W]+)$/,
@@ -45,10 +46,10 @@ $().ready(
    }
 );
 //jquery inArray()筛选遍历数组
-$().ready(
+$(document).ready(
 	function(){
     var anArray = ['one','two','three'];
-    var index = $.inArray(‘two’,anArray);
+    var index = $.inArray('two',anArray);
     alert(index);//返回该值在数组中的键值，返回1
     alert(anArray[index]);//value is two
   }
