@@ -90,4 +90,20 @@ function re_time_zh(time){
     var timeArr = time.split(/[- :]/g)
     return timeArr[0]+'年' + timeArr[1]+'月'+ timeArr[2] + '日'+ timeArr[3]+"点"+ timeArr[4]+"分" + timeArr[3]+"秒";
 }
+
 //console.log(re_time_zh("2016-03-21 11:10:10"));
+
+
+
+//get-element-by-id to 驼峰表达式 getElementById
+function combo(str){
+   var arr = str.split("-");
+   for(var i = 1;i<arr.length;i++){
+       arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1,arr[i].length-1)
+
+   }
+   return arr.join("")
+
+}
+//combo("get-element-by-id");
+//"getElementById"
