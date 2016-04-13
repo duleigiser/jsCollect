@@ -1,0 +1,65 @@
+
+function gallery (seletor) {
+    var _seletor = seletor;
+    var $el      = $(_seletor + '');
+    var dl       = $el.find('dl');
+    var wW       = $(window).width();
+    var el       = $el[0];
+    var startPos = {};
+    var endPos   = {};
+    //调整图片宽度
+    $el.width( dl.size() * wW/3.5 );
+    dl.width(wW/3.5);
+    
+    function touchstart (e) {  
+          
+        var me = e.targetTouches[0];
+        //time 记录下当前的事件；
+        startPos = {x:me.pageX,y:me.pageY,time:+ new Date}
+        
+    }
+
+    function touchmove (e) {
+        var me = e.targetTouches[0];
+        var left = parseInt($el.css('left').split('px')[0]);
+        endPos = {x:me.pageX - startPos.x,y:me.pageY - startPos.y}
+        
+        //滑动时间 还需要优化，不知道多少合适。
+        var duration = +new Date - startPos.time;
+        //判断是否滚动屏幕 滚屏的时候取消左右滑动
+        isScrooling = Math.abs(endPos.x) <Math.abs(endPos.y)? 1:0;
+        //console.log(isScrooling);
+        //console.log(duration);
+        
+        
+        if(isScrooling === 0 && Number(duration) > 60) {              
+            if (endPos.x >10) {
+                
+                if (left >= 0) {
+                    $el.css('left', 0);
+                    return false;
+                }
+                else {
+                    $el.css({'left':left + (endPos.x/2),"-webkit-transition":"left 0.3s ease"});           
+                }
+            }
+            else {      
+                
+                if (left <= -($el.width()- wW)){
+                
+                    $el.css('left', -($el.width()- wW) - 15);
+                    
+                    return false;
+                }
+                else {  
+                    $el.css({'left':left + (endPos.x/2),"-webkit-transition":"left 0.3s ease"});
+                    return false;
+                }
+            }
+        }    
+    }
+
+    el.addEventListener('touchstart', touchstart, false);
+    el.addEventListener('touchmove',  touchmove, false);
+}
+gallery('.three_half');
