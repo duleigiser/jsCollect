@@ -107,3 +107,12 @@ function combo(str){
 }
 //combo("get-element-by-id");
 //"getElementById"
+
+
+//当年过去天数的百分比
+var da = new Date();
+var currentYear = da.getFullYear();
+var nowTime = new Date().getTime();
+var oldTime = new Date(currentYear +"-01-01").getTime();
+var res = (nowTime - oldTime)/(60*60*24*1000*365); 
+console.log(res.toFixed(2));
