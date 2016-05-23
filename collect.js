@@ -116,3 +116,20 @@ var nowTime = new Date().getTime();
 var oldTime = new Date(currentYear +"-01-01").getTime();
 var res = (nowTime - oldTime)/(60*60*24*1000*365); 
 console.log(res.toFixed(2));
+
+
+
+//通过this来实现代码的复用;
+function User(name) {
+    this.name = name;
+    this.display = function() {
+        console.log(this.name);
+    }
+}
+var user1 = new User("dulei");//初始化后才能被引用
+user1.display();// output ·· dulei
+var foo = {
+    bar: user1.display,
+    name: 'foobar'
+};
+foo.bar(); // output ··  foobar;
