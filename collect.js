@@ -133,3 +133,7 @@ var foo = {
     name: 'foobar'
 };
 foo.bar(); // output ··  foobar;
+
+
+//！！！！！！在js拼接  函数中传递json对象 需要序列化为字符串 ！
+//var fun ="onclick='chuantou("+JSON.stringify(d)+")'";
