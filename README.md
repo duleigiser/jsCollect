@@ -1,7 +1,7 @@
 # jsCollect
 //收集一些JS function
 //快速排序：
-    quickSort: function(array) {
+    'quickSort: function(array) {
         var i = 0;
         var j = array.length - 1;
         var Sort = function(i, j) {
@@ -45,7 +45,7 @@
     Sort(i, j);
 
     return array;
-},
+},'
 //冒泡排序：
     bubbleSort: function(array) {
         var i = 0,
