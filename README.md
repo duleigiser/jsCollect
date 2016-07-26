@@ -1,6 +1,8 @@
 # jsCollect
-//收集一些JS function
-//快速排序：
+
+    收集一些JS function
+   
+## 快速排序：
     
     {
         quickSort: function(array) {
@@ -42,7 +44,7 @@
         Sort(i, j);
         return array;
     }
-    //冒泡排序：
+## 冒泡排序：
     
     bubbleSort: function(array) {
         var i = 0,
@@ -59,7 +61,7 @@
         }
         return array;
     }
-//字符串反转
+## 字符串反转
 
     function reverse(str){
         return str.split('').reverse().join('')
