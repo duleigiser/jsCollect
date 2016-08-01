@@ -137,3 +137,42 @@ foo.bar(); // output ··  foobar;
 
 //！！！！！！在js拼接  函数中传递json对象 需要序列化为字符串 ！
 //var fun ="onclick='chuantou("+JSON.stringify(d)+")'";
+
+//对json对象进行排序
+var json_sort={
+    init:function (array, param, sortby) {
+        this.obj = array;
+        this.parm = param;
+        this.b = sortby;
+    },
+    sort:function () {
+        var _this = this;
+        var down = function (x, y) {
+            return (eval("x." + _this.parm) > eval("y." + _this.parm)) ? -1 : 1
+        }//通过eval对json对象的键值传参
+        var up = function (x, y) {
+            return (eval("x." + _this.parm) < eval("y." + _this.parm)) ? -1 : 1
+        };
+        this.b == "down"? this.obj.sort(down):this.obj.sort(up);
+        return this.obj;
+    }
+};
+var p = [
+  {name:"kitty", age:12, price:190},
+  {name:"sonny", age:9, price:390},
+  {name:"jake", age:13, price:42},
+  {name:"fun", age:24, price:210}
+];
+  function _temp() {
+    this.init.apply(this, arguments)
+}
+_temp.prototype = json_sort;
+var sort1 = new _temp(); //建立对象
+/*
+* @param arguments[0] 要处理的json 对象
+* @param arguments[1] [attr] 
+* @param arguments[2] "up"/"down"  
+* 
+*/
+sort1.init(p, "age", "up");//初始化参数
+sort1.sort()
