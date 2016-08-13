@@ -51,15 +51,14 @@
 
 ## group
 
-1. key 分组key
-2. initial 每组都分享这个"初始化函数"
-3. $reduce 第一个参数 当前文档对象，第二个是上一次funciton操作的累积对象，第一次为initial的value；
-
-
-    db.person.group({
-      "key":{"age":true},
-      "initial":{"person":[]},
-      "$reduce":function(cur,out){
-        out.person.push(cur.name)
-      }
-    })
+- key 分组key
+- initial 每组都分享这个"初始化函数"
+- $reduce 第一个参数 当前文档对象，第二个是上一次funciton操作的累积对象，第一次为initial的value；
+   
+		db.person.group({
+			"key":{"age":true},
+			"initial":{"person":[]},
+				"$reduce":function(cur,out){
+				out.person.push(cur.name)
+			}
+		})
