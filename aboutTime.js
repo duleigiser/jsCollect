@@ -27,3 +27,11 @@ function dayOfYear(pYear){
     }
     return dayOfYear;
 }
+//  LEAP_GREGORIAN  --  Is a given year in the Gregorian calendar a leap year ?是否为闰年
+function leap_gregorian(year) {
+	return ((year % 4) == 0) &&
+		(!(((year % 100) == 0) && ((year % 400) != 0)));
+}
+
+
+
