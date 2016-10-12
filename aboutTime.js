@@ -34,4 +34,6 @@ function leap_gregorian(year) {
 }
 
 
-
+//"2015-1-2 12:12:12" 转换成毫秒，解决ie兼容问题。
+//var d= new Date("2015-1-2 12:12:12").getTime()(无法使用)
+Date.parse(("2015-1-2 12:12:12").replace(/-/g,"/"))
