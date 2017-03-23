@@ -178,3 +178,7 @@ sort1.init(p, "age", "up");//初始化参数
 sort1.sort()
 //清除字符串两边的空格
 String.prototype.trim = function(){return this.replace(/^s+|s+$/g, "");};
+//获取数组里的最大值和最小值
+var  numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411]; 
+var maxInNumbers = Math.max.apply(Math, numbers); 
+var minInNumbers = Math.min.apply(Math, numbers);
