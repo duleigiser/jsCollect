@@ -176,3 +176,5 @@ var sort1 = new _temp(); //建立对象
 */
 sort1.init(p, "age", "up");//初始化参数
 sort1.sort()
+//清除字符串两边的空格
+String.prototype.trim = function(){return this.replace(/^s+|s+$/g, "");};
